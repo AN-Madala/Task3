@@ -1,0 +1,59 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    perspective: 1000px; /* Adds a 3D perspective */
+    overflow: hidden; /* Hides overflowing content */
+}
+
+.container {
+    position: relative;
+    width: 50%; /* Sets container width to 50% of the viewport */
+    margin: auto; /* Centers the container horizontally */
+    transform-style: preserve-3d; /* Preserves 3D transformations */
+    transform: rotateY(20deg) rotateX(10deg); /* Initial 3D rotation */
+    transition: transform 0.5s; /* Adds a transition effect on transform */
+}
+
+.container:hover {
+    transform: rotateY(0) rotateX(0); /* Resets rotation on hover */
+}
+
+.image {
+    max-width: 100%; /* Ensures the image doesn't exceed its container */
+    height: auto; /* Maintains image aspect ratio */
+    border-radius: 20px; /* Adds rounded corners to the image */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds a shadow effect */
+    transition: transform 0.5s; /* Adds a transition effect on transform */
+}
+
+.container:hover .image {
+    transform: translateZ(50px); /* Moves the image forward on hover */
+}
+
+.intro-text {
+    text-align: center; /* Centers text horizontally */
+    margin-top: 50px; /* Adds top margin */
+    font-family: Arial, sans-serif; /* Specifies font family */
+    color: red; /* Sets text color to red */
+}
+
+.firework {
+    position: absolute; /* Positions fireworks absolutely */
+    width: 10px; /* Sets width */
+    height: 10px; /* Sets height */
+    background: #f00; /* Sets background color to red */
+    border-radius: 50%; /* Makes the element round */
+    animation: fireworks 1s ease-out infinite alternate; /* Defines the fireworks animation */
+}
+
+@keyframes fireworks {
+    0% {
+        transform: scale(1); /* Initial scale */
+        opacity: 1; /* Initial opacity */
+    }
+    100% {
+        transform: scale(1.5); /* Final scale */
+        opacity: 0; /* Final opacity */
+    }
+}
